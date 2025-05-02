@@ -89,18 +89,18 @@ output reg[31:0] N
              
                 end  
            else if(starting_delay >= 1)begin 
-          if(N<=(X_MEMO_DEPTH-H_MEMO_DEPTH)) begin
+          if(N<=((X_MEMO_DEPTH-H_MEMO_DEPTH)+2)) begin
                     if(filter_delay)begin
                     h_addr<=0;
                     x_addr<=(H_MEMO_DEPTH + N)-2;
-                    R_en<=1;
+                 
                     end 
                     else begin 
                     
                             h_addr<=h_addr+1;
                             x_addr<=(x_addr-1);
                            // x_addr<=0;
-                            R_en<=1;
+                            
                             
                             end 
                      

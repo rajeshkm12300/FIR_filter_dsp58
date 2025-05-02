@@ -102,15 +102,15 @@ output [DATA_WIDTH-1:0] h_i
     );
     
     always @(*)begin 
-    //$monitor("Y_OUTPUT=%b,N=%d",Y_OUTPUT[N-2],(N-2));
+    $monitor("Y_OUTPUT=%b,N=%d",Y_OUTPUT[N-2],(N-2));
     if(dsp58_delay)begin
-    if(N<=(X_MEMO_DEPTH-H_MEMO_DEPTH))
+    if(N<=((X_MEMO_DEPTH-H_MEMO_DEPTH)+2))
     Y_OUTPUT[N-2]<=y_o;
     end
     end
     
     always @(posedge clk)begin
-    if(N==(X_MEMO_DEPTH-H_MEMO_DEPTH))
+    if(N==(X_MEMO_DEPTH-H_MEMO_DEPTH+2))
      $writememb("C:/Users/Rajesh/Desktop/FIR_Filter/write_bin.txt",Y_OUTPUT,0,(X_MEMO_DEPTH-H_MEMO_DEPTH));
     end
     

@@ -55,7 +55,7 @@ output reg[5:0] starting_delay
     end
     
     always @(posedge clk)begin
-    $monitor("count=%d",count);
+   // $monitor("count=%d",count);
    if(temp1)begin
    count<=0;
    end
